@@ -178,7 +178,7 @@ def search(values):
     for value in values[unsolved_box]:
         new_sudoku = values.copy()
         new_sudoku = assign_value(new_sudoku, unsolved_box, value)
-        attemp = search(new_sudoku)
+        attempt = search(new_sudoku)
         if attempt:
             return attempt
 
@@ -197,7 +197,8 @@ def solve(grid):
     return values
 
 if __name__ == '__main__':
-    diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
+    diag_sudoku_grid = '9.1....8.8.5.7..4.2.4....6...7......5..............83.3..6......9................'
+    #diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
     display(solve(diag_sudoku_grid))
 
     try:
