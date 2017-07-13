@@ -2,21 +2,19 @@
 
 -- Projects of Udacity AI Nanodegree 
 
-**Environment Setup**
+## Environment Setup
 
 The projects are run in an environment with Python 3 and all necessary packages installed. The environment can be created and configured by following the steps below:
 
-```
-# create environment (for OSX)
-conda env create -f aind-environment-osx.yml 
-# enter environment
-source activate aind
-#Install the development version of `hmmlearn 0.2.1`
-pip install git+https://github.com/hmmlearn/hmmlearn.git
-```
+```conda env create -f aind-environment-osx.yml``` to create the environment (for OSX) 
 
-**Install Pygame**
-(install homebrew)
+```source activate aind``` to enter environment
+
+```pip install git+https://github.com/hmmlearn/hmmlearn.git``` to install the development version of `hmmlearn 0.2.1`
+
+
+**Install Pygame**  
+(homebrew installed) 
 ```
 brew install sdl sdl_image sdl_mixer sdl_ttf portmidi mercurial
 source activate aind
