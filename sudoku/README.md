@@ -1,44 +1,33 @@
-# Artificial Intelligence Nanodegree
-## Introductory Project: Diagonal Sudoku Solver
+# Diagonal Sudoku Solver
 
-# Question 1 (Naked Twins)
+This project builds a solver with naked-twin strategy, i.e., enforcing the constraint that no squares outside the two naked twins squares can contain the twin values. The solver can also be extended to solve diagonal sudoku where the diagonals of the board are constraint to have all the numbers between 1 and 9.  
+
+## Environment 
+This project runs in **Python 3** with Pygame installed.
+
+
+## Run 
+To test the solution, run 
+
+```
+python solution_test.py
+```
+
+To view in Python game window, run 
+
+```
+python solution.py
+```
+
+
+## Questions
+### Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: In the case of naked twins in sudoku, i.e., two boxes belong to the same column/row and both permit the same 2 values, we can lock the 2 values for these two boxes and remove the values from the possible values of all other boxes in the same unit. 
+A: In the case of naked twins in sudoku, i.e., two boxes belonging to the same unit (row, column, square and/or diagonal) permit the same 2 values, we can thus enforce the constraint that only these two boxes can contain the twin values and we can eliminate the twin values from the possible value lists of all their peers. 
 
-# Question 2 (Diagonal Sudoku)
+### Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: A diagonal sudoku problem is like a regular sudoku, except that the numbers 1 to 9 should all appear once among the two main diagonals. So in addition to the vertical/horizontal unit, we also can use the constraint set by the diagonal units to eliminate the possible values in each empty box. 
+A: A diagonal sudoku problem is like a regular sudoku, except that the numbers 1 to 9 should all appear once among the two main diagonals. So in addition to the constraints set by regular units (rows, columns, and squares), we can also use the constraint set by the diagonal units to eliminate the possible values in each empty box. 
 
-### Install
 
-This project requires **Python 3**.
-
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
-Please try using the environment we provided in the Anaconda lesson of the Nanodegree.
-
-##### Optional: Pygame
-
-Optionally, you can also install pygame if you want to see your visualization. If you've followed our instructions for setting up our conda environment, you should be all set.
-
-If not, please see how to download pygame [here](http://www.pygame.org/download.shtml).
-
-### Code
-
-* `solution.py` - You'll fill this in as part of your solution.
-* `solution_test.py` - Do not modify this. You can test your solution by running `python solution_test.py`.
-* `PySudoku.py` - Do not modify this. This is code for visualizing your solution.
-* `visualize.py` - Do not modify this. This is code for visualizing your solution.
-
-### Visualizing
-
-To visualize your solution, please only assign values to the values_dict using the `assign_value` function provided in solution.py
-
-### Submission
-Before submitting your solution to a reviewer, you are required to submit your project to Udacity's Project Assistant, which will provide some initial feedback.  
-
-The setup is simple.  If you have not installed the client tool already, then you may do so with the command `pip install udacity-pa`.  
-
-To submit your code to the project assistant, run `udacity submit` from within the top-level directory of this project.  You will be prompted for a username and password.  If you login using google or facebook, visit [this link](https://project-assistant.udacity.com/auth_tokens/jwt_login) for alternate login instructions.
-
-This process will create a zipfile in your top-level directory named sudoku-<id>.zip.  This is the file that you should submit to the Udacity reviews system.
 
