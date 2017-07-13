@@ -18,7 +18,7 @@ To view the process of solving a sudoku puzzle in the Python game window, run
 ```
 python solution.py
 ```
-![Image of Pygame](https://github.com/yanfei-wu/ai/blob/master/sudoku/images/pygame.png)
+![Image of Pygame](https://github.com/yanfei-wu/ai/blob/master/sudoku/images/pygame.png =70x70)
 
 
 ## Questions
