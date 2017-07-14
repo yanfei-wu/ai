@@ -1,9 +1,9 @@
 # Diagonal Sudoku Solver
 
-This project uses constraint propagation to build a sudoku solver with naked-twin strategy which enforces the constraint that no squares outside the two naked twins squares can contain the twin values. The solver can also be extended to solve diagonal sudoku where the diagonals of the board are constraint to have all the numbers between 1 and 9.  
+This project uses constraint propagation to build a sudoku solver with naked-twin strategy which enforces the constraint that no squares outside the two naked twins squares can contain the twin values. The solver can also be extended to solve diagonal sudoku where the diagonals of the board are constrained to have all the numbers between 1 and 9.  
 
 ## Environment 
-This project runs in **Python 3** with Pygame installed.
+This project runs in **Python 3** with Pygame installed. 
 
 
 ## Run 
@@ -19,7 +19,7 @@ To view the process of solving a sudoku puzzle in the Python game window, run
 python solution.py
 ```
 
-<img src="https://github.com/yanfei-wu/ai/blob/master/sudoku/images/pygame.png" width="300">
+<img src="https://github.com/yanfei-wu/ai/blob/master/sudoku/images/pygame.png" width="600">
 
 
 ## Questions

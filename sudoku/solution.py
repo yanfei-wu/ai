@@ -3,11 +3,11 @@ assignments = []
 
 def assign_value(values, box, value):
     """
-    Please use this function to update your values dictionary!
     Assigns a value to a given box. If it updates the board record it.
+    Must use this function to update values dictionary for Pygame to work
     """
 
-    # Don't waste memory appending actions that don't actually change any values
+    # Only append actions that actually change any values
     if values[box] == value:
         return values
 
@@ -33,7 +33,7 @@ def naked_twins(values):
     for pair in twins:
         # all unique peers of the twins
         unique_peers = set(peers[pair[0]] & peers[pair[1]])
-        # iterate over all peers and remove the values of the twins
+        # iterate over all peers and remove the twin values from their possibilities
         for peer in unique_peers:
             for val in values[peer]:
                 if val in values[pair[0]]:
@@ -111,8 +111,8 @@ def eliminate(values):
     """
     solved_boxes = [box for box in values.keys() if len(values[box]) == 1]
     for box in solved_boxes:
-        # remove digit taken by solved box from peers
         digit_taken = values[box]
+        # iterate over the peers and remove the digit already taken by solved boxes
         for peer in peers[box]:
             values = assign_value(values, peer, values[peer].replace(digit_taken, ''))           
     return values
@@ -129,7 +129,7 @@ def only_choice(values):
     """
     for unit in unitlist:
         for digit in '123456789':
-            # list of box with the digit in the possible values
+            # list of box with the digit contained in possibilities
             dplaces = [box for box in unit if digit in values[box]]
             if len(dplaces) == 1:
                 values = assign_value(values, dplaces[0], digit) # assign digit to dplaces[0]
@@ -192,7 +192,9 @@ def solve(grid):
     Returns:
         The dictionary representation of the final sudoku grid. False if no solution exists.
     """
+    # Convert grid into a dict of values
     values = grid_values(grid)
+    # solve the puzzle
     values = search(values)
     return values
 
