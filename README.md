@@ -20,6 +20,13 @@ The projects are run in an environment with Python 3 and all necessary packages 
 --- 
 
 ## Project 1: Sudoku Solver (`sudoku/`)
-Use constraint propagation to 
+Used constraint propagation to 
 - solve naked twins problem by enforcing the constraint that no squares outside the naked twins squares can contain the twin values
 - implement solver for diagonal sudoku in which diagonals are added to the set of constraints. 
+
+--- 
+
+## Project 2: Game-playing Agent (`isolation/`)
+Developed an adversarial search agent to play a deterministic, two-player game of perfect information called 'isolation', in which the players alternate turns moving a single piece from one cell to another on a board and the first player with no remaining legal moves loses. Implemented depth-limited minimax search, minimax search with alpha-beta pruning, and iterative deepening search. Implemented and evaluated custom evaluation heuristics.
+
+
