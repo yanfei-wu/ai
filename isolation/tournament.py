@@ -1,14 +1,11 @@
-"""Estimate the strength rating of a student defined heuristic by competing
+"""Estimate the strength rating of a custom heuristic by competing
 against fixed-depth minimax and alpha-beta search agents in a round-robin
 tournament.
 
-NOTE: All agents are constructed from the student CustomPlayer implementation,
-so any errors present in that class will affect the outcome.
-
-The student agent plays a number of "fair" matches against each test agent.
+The agent plays a number of "fair" matches against each test agent.
 The matches are fair because the board is initialized randomly for both
 players, and the players play each match twice -- once as the first player and
-once as the second player.  Randomizing the openings and switching the player
+once as the second player. Randomizing the openings and switching the player
 order corrects for imbalances due to both starting position and initiative.
 """
 import itertools

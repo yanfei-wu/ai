@@ -1,11 +1,6 @@
 """
 This file contains the `Board` class, which implements the rules for the
-game Isolation as described in lecture, modified so that the players move
-like knights in chess rather than queens.
-
-You MAY use and modify this class, however ALL function signatures must
-remain compatible with the defaults provided, and none of your changes will
-be available to project reviewers.
+game Isolation, i.e., the players move like knights in chess.
 """
 import random
 import timeit
@@ -100,8 +95,7 @@ class Board(object):
         return new_board
 
     def forecast_move(self, move):
-        """Return a deep copy of the current game with an input move applied to
-        advance the game one ply.
+        """Return a deep copy of the current game with an input move applied.
 
         Parameters
         ----------
@@ -165,8 +159,7 @@ class Board(object):
                 return Board.NOT_MOVED
             idx = self._board_state[-2]
         else:
-            raise RuntimeError(
-                "Invalid player in get_player_location: {}".format(player))
+            raise RuntimeError("Invalid player in get_player_location: {}".format(player))
         w = idx // self.height
         h = idx % self.height
         return (h, w)
