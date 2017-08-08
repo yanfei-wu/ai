@@ -4,15 +4,9 @@ class SearchTimeout(Exception):
     """Subclass base exception for code clarity. """
     pass
 
-
 def custom_score(game, player):
-    """Calculate the heuristic value of a game state from the point of view
-    of the given player.
-
-    This should be the best heuristic function for your project submission.
-
-    Note: this function should be called from within a Player instance as
-    `self.score()` -- you should not need to call this function directly.
+    """Calculate the heuristic value: the ratio between the difference in moves left and the 
+    difference in distance of two players. 
 
     Parameters
     ----------
@@ -29,16 +23,29 @@ def custom_score(game, player):
     float
         The heuristic value of the current game state to the specified player.
     """
-    # score function with heuristic1
-    return heuristic1(game, player)
+
+    # return inf if player has won the game, otherwise return -inf
+    if game.is_winner(player): 
+        return float('inf')
+    elif game.is_loser(player):
+        return float('-inf')
+
+    # calculate number of moves left
+    my_moves_left = len(game.get_legal_moves(player))
+    opponent_moves_left = len(game.get_legal_moves(game.get_opponent(player)))
+    delta_moves = my_moves_left - 2*opponent_moves_left
+
+    # calculate Manhattan distance from current position to the center position for both
+    my_y_pos, my_x_pos = game.get_player_location(player)
+    opponent_y_pos, opponent_x_pos = game.get_player_location(game.get_opponent(player))
+    delta_distance = abs(my_y_pos - opponent_y_pos) + abs(my_x_pos - opponent_x_pos)
+
+    return float(delta_moves / float(delta_distance))
 
 
 def custom_score_2(game, player):
-    """Calculate the heuristic value of a game state from the point of view
-    of the given player.
-
-    Note: this function should be called from within a Player instance as
-    `self.score()` -- you should not need to call this function directly.
+    """Calculate the heuristic value: difference of total number of moves in current and 
+    future board states. 
 
     Parameters
     ----------
@@ -55,16 +62,34 @@ def custom_score_2(game, player):
     float
         The heuristic value of the current game state to the specified player.
     """
-    # score function with heuristic2
-    return heuristic2(game, player)
+
+    # return inf if player has won the game, otherwise return -inf
+    if game.is_winner(player):
+    	return float('inf')
+    elif game.is_loser(player):
+    	return float('-inf')
+
+    # calculate number of moves left
+    my_legal_moves = game.get_legal_moves(player)
+    my_total_moves = len(my_legal_moves)
+    for move in my_legal_moves:
+    	board = game
+    	board = game.forecast_move(move)
+    	my_total_moves += len(board.get_legal_moves())
+
+    opponent_legal_moves = game.get_legal_moves(game.get_opponent(player))
+    opponent_total_moves = len(opponent_legal_moves)
+    for move in opponent_legal_moves:
+    	board = game
+    	board = game.forecast_move(move)
+    	opponent_total_moves += len(board.get_legal_moves())
+
+    return float(my_total_moves - 2*opponent_total_moves)
 
 
 def custom_score_3(game, player):
-    """Calculate the heuristic value of a game state from the point of view
-    of the given player.
-
-    Note: this function should be called from within a Player instance as
-    `self.score()` -- you should not need to call this function directly.
+    """Calculate the heuristic value: difference of number of moves left or difference
+    in the Manhattan distance to board center.
 
     Parameters
     ----------
@@ -81,66 +106,6 @@ def custom_score_3(game, player):
     float
         The heuristic value of the current game state to the specified player.
     """
-    # score function with heuristic3
-    return heuristic3(game, player)
-
-
-def heuristic1(game, player):
-    """heuristic 1: evaluate the difference between player's total number of moves 
-    left and opponent's total number of moves left. The move the player's moves left, 
-    the better.
-
-    Parameters
-    ----------
-    game : `isolation.Board`
-        An instance of `isolation.Board` encoding the current state of the
-        game (e.g., player locations and blocked cells).
-
-    player : object
-        A player instance in the current game (i.e., an object corresponding to
-        one of the player objects `game.__player_1__` or `game.__player_2__`.)
-
-    Returns
-    -------
-    float
-        The heuristic value of the current game state to the specified player.
-    """
-
-    # return inf if player has won the game, otherwise return -inf 
-    if game.is_winner(player):
-        return float('inf')
-    elif game.is_loser(player):
-        return float('-inf')
-
-    # calculate player's moves left and opponent's moves left, and return the difference
-    my_moves_left = len(game.get_legal_moves(player))
-    opponent_moves_left = len(game.get_legal_moves(game.get_opponent(player)))
-
-    return float(my_moves_left - opponent_moves_left)
-
-
-def heuristic2(game, player):
-    """heuristic 2: evaluate the difference between player's total number of moves 
-    left and opponent's total number of moves left as in heuristic 1. If both have 
-    the same number of moves left, then evaluate whose current position is closer 
-    to the center of the board (the closer the better).
-
-    Parameters
-    ----------
-    game : `isolation.Board`
-        An instance of `isolation.Board` encoding the current state of the
-        game (e.g., player locations and blocked cells).
-
-    player : object
-        A player instance in the current game (i.e., an object corresponding to
-        one of the player objects `game.__player_1__` or `game.__player_2__`.)
-
-    Returns
-    -------
-    float
-        The heuristic value of the current game state to the specified player.
-    """
-
     # return inf if player has won the game, otherwise return -inf
     if game.is_winner(player):
         return float('inf')
@@ -151,68 +116,20 @@ def heuristic2(game, player):
     my_moves_left = len(game.get_legal_moves(player))
     opponent_moves_left = len(game.get_legal_moves(game.get_opponent(player)))
 
-    
     if my_moves_left != opponent_moves_left:
-        # return difference in number of moves left if it is not zero
-        return float(my_moves_left - opponent_moves_left)
-    else:
-        # calculate distance from current position to the center position for both
-        # return the difference of the two distances
-        center_y_pos, center_x_pos = int(game.height/2), int(game.width/2)
-        my_y_pos, my_x_pos = game.get_player_location(player)
-        opponent_y_pos, opponent_x_pos = game.get_player_location(game.get_opponent(player))
-        my_distance = abs(my_y_pos - center_y_pos) + abs(my_x_pos - center_x_pos)
-        opponent_distance = abs(opponent_y_pos - center_y_pos) + \
-                            abs(opponent_x_pos - center_x_pos)
-        return float(opponent_distance - my_distance)/10.
+    	return float(my_moves_left - 2*opponent_moves_left)
+
+    # difference of distance to the center between player and opponent
+    center_y_pos, center_x_pos = int(game.height/2), int(game.width/2)
+    my_y_pos, my_x_pos = game.get_player_location(player)
+    opponent_y_pos, opponent_x_pos = game.get_player_location(game.get_opponent(player))
+    my_to_center = abs(my_y_pos - center_y_pos) + abs(my_x_pos - center_x_pos)
+    opponent_to_center = abs(opponent_y_pos - center_y_pos) + abs(opponent_x_pos - center_x_pos)
+    return float(opponent_to_center - 2*my_to_center)
 
 
-def heuristic3(game, player):
-    """heuristic 2: evaluate the difference between player's total number of moves 
-    left and opponent's total number of moves left. If both have the same number of
-    moves left, then evaluate whose current position is closer to the center of the 
-    ard (more likely to win)
 
-    Parameters
-    ----------
-    game : `isolation.Board`
-        An instance of `isolation.Board` encoding the current state of the
-        game (e.g., player locations and blocked cells).
 
-    player : object
-        A player instance in the current game (i.e., an object corresponding to
-        one of the player objects `game.__player_1__` or `game.__player_2__`.)
-
-    Returns
-    -------
-    float
-        The heuristic value of the current game state to the specified player.
-    """
-
-    # return inf if player has won the game, otherwise return -inf
-    if game.is_winner(player):
-        return float('inf')
-    elif game.is_loser(player):
-        return float('-inf')
-
-    # calculate number of moves left
-    my_moves_left = len(game.get_legal_moves(player))
-    opponent_moves_left = len(game.get_legal_moves(game.get_opponent(player)))
-
-    
-    if my_moves_left != opponent_moves_left:
-        # return difference in number of moves left if it is not zero
-        return float(my_moves_left - opponent_moves_left)
-    else:
-        # calculate distance from current position to the center position for both
-        # return the difference of the two distances
-        center_y_pos, center_x_pos = int(game.height/2), int(game.width/2)
-        my_y_pos, my_x_pos = game.get_player_location(player)
-        opponent_y_pos, opponent_x_pos = game.get_player_location(game.get_opponent(player))
-        my_distance = abs(my_y_pos - center_y_pos) + abs(my_x_pos - center_x_pos)
-        opponent_distance = abs(opponent_y_pos - center_y_pos) + \
-                            abs(opponent_x_pos - center_x_pos)
-        return float(opponent_distance - my_distance)/10.
 
 class IsolationPlayer:
     """Base class for minimax and alphabeta agents.
@@ -303,7 +220,6 @@ class MinimaxPlayer(IsolationPlayer):
             The board coordinates of the best move found in the current search;
             (-1, -1) if there are no legal moves
         """
-
 
         def min_play(self, game, depth):
             """function used by minimax to return best score for minimizing layer"""
@@ -423,7 +339,6 @@ class AlphaBetaPlayer(IsolationPlayer):
         # Return the best move from the last completed search iteration
         return best_move
 
-
     def alphabeta(self, game, depth, alpha=float("-inf"), beta=float("inf")):
         """Depth-limited minimax search with alpha-beta pruning.
 
@@ -476,8 +391,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 # update beta
                 beta = min(beta, best_score)
             return best_score
-
-            
+           
         def max_play(self, game, depth, alpha, beta):
             """function used by alphabeta to return best score for maximizing layer"""
 
@@ -505,7 +419,6 @@ class AlphaBetaPlayer(IsolationPlayer):
                 alpha = max(alpha, best_score)
             return best_score
  
-
         ### BODY OF ALPHABETA
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
