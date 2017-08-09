@@ -27,6 +27,10 @@ Used constraint propagation to
 --- 
 
 ## Project 2: Game-playing Agent (`isolation/`)
-Developed an adversarial search agent to play a deterministic, two-player game of perfect information called 'isolation', in which the players alternate turns moving a single piece from one cell to another on a board and the first player with no remaining legal moves loses. Implemented depth-limited minimax search, minimax search with alpha-beta pruning, and iterative deepening search. Implemented and evaluated custom evaluation heuristics.
+Developed an adversarial search agent to play a deterministic, two-player game of perfect information called 'isolation', in which the players alternate turns moving a single piece from one cell to another on a board and the first player with no remaining legal moves loses.   
+- Implemented depth-limited minimax search, minimax search with alpha-beta pruning, and iterative deepening search.   
+- Implemented custom evaluation heuristics and evaluated the performance of the heuristics by competing against baseline agents with alpha-beta search and iterative deepening.  
+
+--- 
 
 
