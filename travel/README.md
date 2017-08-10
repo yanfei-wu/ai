@@ -1,6 +1,6 @@
 # Traveling Salesman
 
-[result](result.png)  
+![result](./result.png)  
 
 In this project,  simulated annealing algorithm is implemented to solve the Traveling Salesman Problem between US state capitals. Simulated annealing is a probablistic technique used for finding an approximate solution to an optimization problem. The Traveling Salesman Problem is an optimization problem that seeks to find the shortest path passing through every city exactly once. Here, the path is defined to start and end in the same city, i.e., a closed loop path. 
 
