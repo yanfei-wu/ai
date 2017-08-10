@@ -33,4 +33,6 @@ Developed an adversarial search agent to play a deterministic, two-player game o
 
 --- 
 
+## Project 3: Traveling Salseman (`travel/`)
+Implemented simulated annlealing algorithm to solve the traveling saleseman problem between US state capitals, which is an optimization problem that seeks to find the shortest path passing through every city exactly once.   
 
