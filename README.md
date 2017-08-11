@@ -37,3 +37,11 @@ Developed an adversarial search agent to play a deterministic, two-player game o
 - Implemented simulated annealing algorithm to solve the traveling saleseman problem between US state capitals, which is an optimization problem that seeks to find the shortest path passing through every city exactly once.   
 - Compared different cooling schedule functions used for simulated annealing, including linear, exponential, quadratic, and logarithmical functions.  
 
+---  
+
+## Project 4: N-Queens Solver (`n-queens/`)  
+Used symbolic math library to explicitly construct binary constraints and then use Backtracking to solve the N-queens problem, a game in which N queens are to be placed on a standard NxN chessboard such that none of the queens are in "check" (i.e., no two queens occupy the same row, column, or diagonal).  
+
+---  
+
+
