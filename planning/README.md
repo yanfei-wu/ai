@@ -67,8 +67,8 @@ To experiment with the search algorithms, run the `run_search` script
 `python run_search.py -p [problem index 1 or 2 or 3] -s [search algorithm index 1 to 10]`  
 
 The `tests` directory includes `unittest` test cases, run   
-    - `python -m unittest tests.test_my_air_cargo_problems`
-    - `python -m unittest tests.test_my_planning_graph`
+    - `python -m unittest tests.test_my_air_cargo_problems`  
+    - `python -m unittest tests.test_my_planning_graph`  
 
 
 
