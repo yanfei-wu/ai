@@ -44,4 +44,8 @@ Used symbolic math library to explicitly construct binary constraints and then u
 
 ---  
 
+## Project 4: Implement a Planning Search ('planning/')  
+- Implemented progression search algorithms to solve deterministic logistics planning problems for an Air Cargo transport system using a planning search agent    
+- Implemented two different domain-independent heuristics to aid A* search for the agent   
+- Compared result metrics including optimality, search time, and node expansions between non-heuristic search algorithms (breadth-first, depth-first, etc.) and heuristic search algorithms (A* search with custom heuristic functions) 
 
