@@ -1,0 +1,48 @@
+Result for ['norm-rx', 'norm-ry', 'norm-lx', 'norm-ly'] and <class 'my_model_selectors.SelectorCV'>
+**** WER = 0.6179775280898876
+Total correct: 68 out of 178
+=====================================================================================================
+Result for ['norm-rx', 'norm-ry', 'norm-lx', 'norm-ly'] and <class 'my_model_selectors.SelectorBIC'>
+**** WER = 0.6404494382022472
+Total correct: 64 out of 178
+=====================================================================================================
+Result for ['norm-rx', 'norm-ry', 'norm-lx', 'norm-ly'] and <class 'my_model_selectors.SelectorDIC'>
+**** WER = 0.6404494382022472
+Total correct: 64 out of 178
+=====================================================================================================
+Result for ['polar-rr', 'polar-rtheta', 'polar-lr', 'polar-ltheta'] and <class 'my_model_selectors.SelectorCV'>
+**** WER = 0.5561797752808989
+Total correct: 79 out of 178
+=====================================================================================================
+Result for ['polar-rr', 'polar-rtheta', 'polar-lr', 'polar-ltheta'] and <class 'my_model_selectors.SelectorBIC'>
+**** WER = 0.5280898876404494
+Total correct: 84 out of 178
+=====================================================================================================
+Result for ['polar-rr', 'polar-rtheta', 'polar-lr', 'polar-ltheta'] and <class 'my_model_selectors.SelectorDIC'>
+**** WER = 0.5337078651685393
+Total correct: 83 out of 178
+=====================================================================================================
+Result for ['delta-rx', 'delta-ry', 'delta-lx', 'delta-ly'] and <class 'my_model_selectors.SelectorCV'>
+**** WER = 0.6123595505617978
+Total correct: 69 out of 178
+=====================================================================================================
+Result for ['delta-rx', 'delta-ry', 'delta-lx', 'delta-ly'] and <class 'my_model_selectors.SelectorBIC'>
+**** WER = 0.6348314606741573
+Total correct: 65 out of 178
+=====================================================================================================
+Result for ['delta-rx', 'delta-ry', 'delta-lx', 'delta-ly'] and <class 'my_model_selectors.SelectorDIC'>
+**** WER = 0.6404494382022472
+Total correct: 64 out of 178
+=====================================================================================================
+Result for ['delta-norm-grnd-rx', 'delta-norm-grnd-ry', 'delta-norm-grnd-lx', 'delta-norm-grnd-ly'] and <class 'my_model_selectors.SelectorCV'>
+**** WER = 0.5561797752808989
+Total correct: 79 out of 178
+=====================================================================================================
+Result for ['delta-norm-grnd-rx', 'delta-norm-grnd-ry', 'delta-norm-grnd-lx', 'delta-norm-grnd-ly'] and <class 'my_model_selectors.SelectorBIC'>
+**** WER = 0.5955056179775281
+Total correct: 72 out of 178
+=====================================================================================================
+Result for ['delta-norm-grnd-rx', 'delta-norm-grnd-ry', 'delta-norm-grnd-lx', 'delta-norm-grnd-ly'] and <class 'my_model_selectors.SelectorDIC'>
+**** WER = 0.6067415730337079
+Total correct: 70 out of 178
+=====================================================================================================
