@@ -4,8 +4,7 @@ The overall goal of this project is to build a word recognizer for American Sign
 
 The raw data, train, and test sets are pre-defined. A variety of feature sets are derived including normalized features, polar features, delta features, and customer features with delta of normalized ground features. Three different model selection criterion (cross validation, BIC, DIC) are implemented to determine the optimal number of hidden states for each word model. The recognizer is implemented and the effects the different combinations of feature sets and model selection criteria are compared by word error rate (WER). The result of the comparison is shown in the table below:  
 
-![comparison](comparison.png =300x300)
-<img src="comparison.png" alt="Drawing" style="width: 380px;"/> 
+<img src="comparison.png" width= "380"/> 
 
 
 ### Install
