@@ -49,3 +49,10 @@ Used symbolic math library to explicitly construct binary constraints and then u
 - Implemented two different domain-independent heuristics to aid A* search for the agent   
 - Compared result metrics including optimality, search time, and node expansions between non-heuristic search algorithms (breadth-first, depth-first, etc.) and heuristic search algorithms (A* search with custom heuristic functions) 
 
+
+---  
+
+## Project 6: Build a Sign Language Recognition System (`recognizer/`)  
+- Employed hidden Markov models (HMM's) to analyze a series of measurements taken from videos of American Sign Language (ASL)    
+- Derived a variety of feature sets and implemented three different model selection criterion (cross validation, BIC, DIC) to determine the optimal number of hidden states for each word model  
+- Compared word error rate from the different combinations of feature sets and model selection criteria  
