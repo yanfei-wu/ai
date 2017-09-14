@@ -58,7 +58,7 @@ def show_errors_brief(guesses: list, test_set: SinglesData):
         if guesses[word_id] != test_set.wordlist[word_id]:
             S += 1
 
-    print("\n**** WER = {}".format(float(S) / float(N)))
+    print("**** WER = {}".format(float(S) / float(N)))
     print("Total correct: {} out of {}".format(N - S, N))
     print('=====================================================================================================')
         

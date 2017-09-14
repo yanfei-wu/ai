@@ -67,8 +67,14 @@ class SelectorBIC(ModelSelector):
     http://www2.imm.dtu.dk/courses/02433/doc/ch6_slides.pdf
     Bayesian information criteria: BIC = -2 * logL + p * logN
         L: likelihood
-        p: number of free parameters
+        p: number of free parameters. It is the sum of 1). The free transition probability parameters, 
+           which is the size of the transmat matrix less one row because they add up to 1 and therefore 
+           the final row is deterministic, so `n*(n-1)`; 2). The free starting probabilities, which is 
+           the size of startprob minus 1 because it adds to 1.0 and last one can be calculated so `n-1`;
+           3). Number of means, which is `n*f`; 4). Number of covariances which is the size of the covars 
+           matrix, which for "diag" is `n*f`
         N: number of features
+        
     """
 
     def select(self):
@@ -88,7 +94,7 @@ class SelectorBIC(ModelSelector):
                 model = self.base_model(n_components)
                 logL = model.score(self.X, self.lengths)
                 n_features = self.X.shape[1]
-                n_params = n_components * (n_components - 1) + 2 * n_features * n_components
+                n_params = n_components * (n_components - 1) + 2 * n_features * n_components + n_components - 1
                 bic = -2 * logL + n_params * np.log(n_features) 
                 
                 if bic < best_score:
